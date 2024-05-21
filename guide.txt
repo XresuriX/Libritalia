@@ -1,0 +1,31 @@
+python -m black {source_file_or_directory}
+source venv/Scripts/activate
+export DJANGO_SETTINGS_MODULE=src.settings.local
+pytest -vv -s
+python manage.py runserver --settings=src.settings.
+python manage.py tailwind start --settings=src.settings.local
+python manage.py makemigrations --settings=src.settings.test
+python manage.py migrate --settings=src.settings.test
+celery beat -l info
+celery worker -l info
+rabbitmqctl status
+pip install -r requirements/local.txt
+pre-commit install
+export CELERY_BROKER_URL=redis://localhost:6379/0
+pip install -r requirements/local.txt
+export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+and
+
+export CELERY_BROKER_URL="${REDIS_URL}"
+
+
+nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/default.config:/etc/nginx/default.conf:ro
+      - next_build:/frontend/build:ro
+    depends_on:
+      - django
+      - node
