@@ -1,8 +1,8 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser  # noqa: EXE002
+from django.db import models
 from django.db.models import CharField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.db import models
 
 
 class User(AbstractUser):
@@ -29,10 +29,20 @@ class User(AbstractUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
-    #avatar = models.ImageField(default='default.jpg', upload_to='profile_images')  # noqa: ERA001
-    about = models.TextField(_(
-        "about"), max_length=500, blank=True)
+    followers = models.ManyToManyField(
+        "self", related_name="followed_by", symmetrical=False, blank=True,
+    )
+    avatar = models.ImageField(default="default.jpg", upload_to="profile_pics")
+    about = models.TextField(_("about"), max_length=500, blank=True)
 
     def __str__(self):
         return self.user.username
+
+    def get_absolute_url(self) -> str:
+        """Get URL for user's detail view.
+
+        Returns:
+            str: URL for user detail.
+
+        """
+        return reverse("users:detail", kwargs={"username": self.username})

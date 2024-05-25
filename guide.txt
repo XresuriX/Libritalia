@@ -11,12 +11,21 @@ celery worker -l info
 rabbitmqctl status
 pip install -r requirements/local.txt
 pre-commit install
-export CELERY_BROKER_URL=redis://localhost:6379/0
+
 pip install -r requirements/local.txt
 export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
-and
-
 export CELERY_BROKER_URL="${REDIS_URL}"
+export CELERY_BROKER_URL=redis://localhost:6379/0
+
+
+
+
+
+
+
+
+
+
 
 
 nginx:
