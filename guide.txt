@@ -19,6 +19,29 @@ export CELERY_BROKER_URL=redis://localhost:6379/0
 
 
 
+from ninja import Router
+from django.contrib.auth.forms import UserCreationForm
+from allauth.account.forms import SignupForm
+from allauth.account.views import SignupView
+from django.http import HttpRequest
+
+auth = Router()
+
+@auth.post("register/")
+def register(request: HttpRequest, data: UserCreationForm):
+    # Use Django Allauth's SignupView to handle user registration
+    signup_view = SignupView.as_view()
+    signup_form = SignupForm(data)
+    response = signup_view(request, form=signup_form)
+    return {"message": "User registered successfully"}
+In this example:
+
+We define a register endpoint in Django Ninja for user registration.
+The register endpoint accepts a UserCreationForm from the client containing registration data.
+Inside the endpoint, we instantiate a SignupView from Django Allauth to handle user registration. We pass the UserCreationForm data to a SignupForm to validate the input.
+After registration is successful, we return a success message to the client.
+
+
 
 
 

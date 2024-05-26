@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "allauth.mfa",
     "allauth.socialaccount",
     "django_celery_beat",
+    'ninja_extra',
 ]
 
 LOCAL_APPS = [
