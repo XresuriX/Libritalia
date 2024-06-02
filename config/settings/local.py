@@ -90,3 +90,7 @@ HEADLESS_FRONTEND_URLS = {
     "account_reset_password_from_key": "/account/password/reset/key/{key}",
     "account_signup": "/account/signup",
 }"""
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]

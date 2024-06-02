@@ -1,4 +1,5 @@
 # ruff: noqa
+from django import urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -6,6 +7,7 @@ from django.urls import include
 from django.urls import path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from libretalia.users.api import app
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -19,6 +21,8 @@ urlpatterns = [
     # User management
     path("users/", include("libretalia.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path('allauth_accounts_api/', app.urls),
+
     #path("libretalia_allauth/", include("allauth.headless.urls")),
     # Your stuff: custom urls includes go here
     # ...
