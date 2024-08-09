@@ -1,15 +1,15 @@
 from django.shortcuts import get_object_or_404
-from ninja_extra import NinjaExtraAPI, api_controller, route, permissions, throttle # type: ignore
+from ninja_extra import NinjaExtraAPI, api_controller, route, permissions, throttle, ModelConfig, ModelControllerBase, ModelSchemaConfig # type: ignore
 from django.contrib.auth.forms import UserCreationForm
 from allauth.account.forms import SignupForm
 from allauth.account.views import SignupView
 from django.http import HttpRequest
-from .models import User, Profile
+from libretalia.users.models import User, Profile
 from .schemas import UserSchema, UserCreationSchema, ProfileSchema
 
 app = NinjaExtraAPI()
 
-@api_controller('/account', tags=['User'], permissions=[permissions.IsAuthenticatedOrReadOnly])
+"""@api_controller('/account', tags=['User'], permissions=[permissions.IsAuthenticatedOrReadOnly])
 class UserController:
 
     @route.get("/list/all", response=list[UserSchema], permissions=[])
@@ -34,21 +34,17 @@ class UserController:
             response = signup_view.form_valid(signup_form)
             return 201, {"message": "User registered successfully"}
         else:
-            return 400, {"errors": signup_form.errors}
+            return 400, {"errors": signup_form.errors}"""
         
 @api_controller('/profiles', tags=['Profile'], permissions=[permissions.IsAuthenticatedOrReadOnly])   
-class ProfileController:
-    @route.get("/{slug}/", response=ProfileSchema)
-    def get_profile(self, slug: str):
-        profile = get_object_or_404(Profile, slug=slug)
-        return profile
-
-
-    @route.get("/profile/all", response=list[ProfileSchema], permissions=[])
-    def get_all_profiles(self):
-        return Profile.objects.all()
+class ProfileModelController(ModelControllerBase):
+    model_config = ModelConfig(
+        model=Profile,
+        allowed_routes=['find_one', "update", "patch", "delete", 'list'],
+        schema_config=ModelSchemaConfig(read_only_fields=["id"]),
+    )
     
 app.register_controllers(
-    UserController,
-    ProfileController,
+    #UserController,
+    ProfileModelController,
 )

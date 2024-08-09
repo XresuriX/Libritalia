@@ -21,11 +21,10 @@ urlpatterns = [
     # User management
     path("users/", include("libretalia.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path('allauth_accounts_api/', app.urls),
-
-    #path("libretalia_allauth/", include("allauth.headless.urls")),
+    path("libretalia_allauth/", include("allauth.headless.urls")),
+    
     # Your stuff: custom urls includes go here
-    # ...
+    path('profile_api/', app.urls),
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

@@ -23,6 +23,8 @@ export COMPOSE_FILE=docker-compose.local.yml
 docker compose up -d
 docker compose -f docker-compose.docs.yml up
 docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
+docker compose -f docker-compose.local.yml run --rm django coverage run -m pytest
+docker compose -f docker-compose.local.yml run --rm django coverage report
 
 from ninja import Router
 from django.contrib.auth.forms import UserCreationForm

@@ -14,11 +14,11 @@ class UserCreationSchema(Schema):
 
 
 class ProfileSchema(ModelSchema):
-    #name: UserSchema | None = None
+    user: UserSchema 
 
     class Meta:
         model = Profile
-        fields = ( 'avatar', 'about', 'slug', 'followers', 'location')
+        fields = ('user', 'avatar', 'about', 'slug', 'followers', 'location')
 
 
 """class DeviceCreateSchema(Schema):

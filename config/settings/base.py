@@ -82,6 +82,8 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     'photologue',
     'sortedm2m',
+    'allauth.headless',
+    'allauth.usersessions',
 ]
 
 LOCAL_APPS = [
@@ -314,6 +316,14 @@ ACCOUNT_FORMS = {"signup": "libretalia.users.forms.UserSignupForm"}
 SOCIALACCOUNT_ADAPTER = "libretalia.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_FORMS = {"signup": "libretalia.users.forms.UserSocialSignupForm"}
+
+"""HEADLESS_FRONTEND_URLS = {
+    "account_confirm_email": "/account/verify-email/{key}",
+    "account_reset_password": "/account/password/reset",
+    "account_reset_password_from_key": "/account/password/reset/key/{key}",
+    "account_signup": "/account/signup",
+    "socialaccount_login_error": "/account/provider/callback",
+}"""
 
 
 # Your stuff...

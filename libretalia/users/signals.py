@@ -1,7 +1,7 @@
 from allauth.account.signals import user_signed_up  # noqa: EXE002
 from django.dispatch import receiver
 
-from .models import Profile
+from .models import Profile, User
 
 
 @receiver(user_signed_up)

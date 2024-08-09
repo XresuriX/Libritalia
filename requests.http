@@ -1,0 +1,30 @@
+
+
+GET  http://localhost:8000/libretalia_allauth/app/v1/auth/email/verify
+Content-Type: application/json
+
+{
+  "status": 200,
+  "data": {
+    "user": {
+      "id": 1,
+      "display": "leslie taffe",
+      "has_usable_password": true,
+      "email": "taffe.leslie@gmail.com",
+      "username": "admin"
+    },
+    "methods": [
+      {
+        "method": "password",
+        "at": 1711555057.065702,
+        "email": "taffe.leslie@gmail.com",
+        "username": "admin"
+      }
+    ]
+  },
+  "meta": {
+    "session_token": "ufwcig0zen9skyd545jc0fkq813ghar2",
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdW",
+    "is_authenticated": true
+  }
+}

@@ -83,14 +83,14 @@ CELERY_TASK_EAGER_PROPAGATES = True
 # django-allauth headless code
 # ------------------------------------------------------------------------------
 
-"""HEADLESS_ONLY = True
+"""
 HEADLESS_FRONTEND_URLS = {
     "account_confirm_email": "/account/verify-email/{key}",
     "account_reset_password": "/account/password/reset",
     "account_reset_password_from_key": "/account/password/reset/key/{key}",
     "account_signup": "/account/signup",
 }"""
-
+HEADLESS_ONLY = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
