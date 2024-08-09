@@ -25,8 +25,8 @@ if __name__ == "__main__":
         raise
 
     # This allows easy placement of apps within the interior
-    # libretalia directory.
+    # xamaica directory.
     current_path = Path(__file__).parent.resolve()
-    sys.path.append(str(current_path / "libretalia"))
+    sys.path.append(str(current_path / "xamaica"))
 
     execute_from_command_line(sys.argv)

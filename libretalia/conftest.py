@@ -1,7 +1,7 @@
 import pytest
 
-from libretalia.users.models import User
-from libretalia.users.tests.factories import UserFactory
+from xamaica.users.models import User
+from xamaica.users.tests.factories import UserFactory
 
 
 @pytest.fixture(autouse=True)

@@ -1,7 +1,7 @@
 services:
   docs:
-    image: libretalia_local_docs
-    container_name: libretalia_local_docs
+    image: xamaica_local_docs
+    container_name: xamaica_local_docs
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
@@ -10,7 +10,7 @@ services:
     volumes:
       - ./docs:/docs:z
       - ./config:/app/config:z
-      - ./libretalia:/app/libretalia:z
+      - ./xamaica:/app/xamaica:z
     ports:
       - '9000:9000'
     command: /start-docs

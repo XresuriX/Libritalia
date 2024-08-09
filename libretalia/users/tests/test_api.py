@@ -1,8 +1,8 @@
 import pytest
 from django.contrib.auth.models import User
-from libretalia.users.models import User, Profile
+from xamaica.users.models import User, Profile
 from ninja_extra.testing import TestAsyncClient # type: ignore
-from libretalia.users.api import app # Import the Ninja API instance
+from xamaica.users.api import app # Import the Ninja API instance
 
 @pytest.mark.django_db
 class TestProfileAPI:

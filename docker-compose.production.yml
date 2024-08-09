@@ -14,9 +14,9 @@ services:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
 
-    image: libretalia_production_django
+    image: xamaica_production_django
     volumes:
-      - production_django_media:/app/libretalia/media
+      - production_django_media:/app/xamaica/media
     depends_on:
       - postgres
       - redis
@@ -29,7 +29,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: libretalia_production_postgres
+    image: xamaica_production_postgres
     volumes:
       - production_postgres_data:/var/lib/postgresql/data
       - production_postgres_data_backups:/backups
@@ -40,7 +40,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/traefik/Dockerfile
-    image: libretalia_production_traefik
+    image: xamaica_production_traefik
     depends_on:
       - django
     volumes:
@@ -59,24 +59,24 @@ services:
 
   celeryworker:
     <<: *django
-    image: libretalia_production_celeryworker
+    image: xamaica_production_celeryworker
     command: /start-celeryworker
 
   celerybeat:
     <<: *django
-    image: libretalia_production_celerybeat
+    image: xamaica_production_celerybeat
     command: /start-celerybeat
 
   flower:
     <<: *django
-    image: libretalia_production_flower
+    image: xamaica_production_flower
     command: /start-flower
 
   nginx:
     build:
       context: .
       dockerfile: ./compose/production/nginx/Dockerfile
-    image: libretalia_production_nginx
+    image: xamaica_production_nginx
     depends_on:
       - django
     volumes:

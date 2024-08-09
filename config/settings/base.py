@@ -6,8 +6,8 @@ from pathlib import Path
 import environ
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-# libretalia/
-APPS_DIR = BASE_DIR / "libretalia"
+# xamaica/
+APPS_DIR = BASE_DIR / "xamaica"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
@@ -87,7 +87,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "libretalia.users",
+    "xamaica.users",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -96,7 +96,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "libretalia.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "xamaica.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "libretalia.users.context_processors.allauth_settings",
+                "xamaica.users.context_processors.allauth_settings",
             ],
         },
     },
@@ -309,13 +309,13 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_ADAPTER = "libretalia.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "xamaica.users.adapters.AccountAdapter"
 # https://docs.allauth.org/en/latest/account/forms.html
-ACCOUNT_FORMS = {"signup": "libretalia.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "xamaica.users.forms.UserSignupForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_ADAPTER = "libretalia.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "xamaica.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_FORMS = {"signup": "libretalia.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "xamaica.users.forms.UserSocialSignupForm"}
 
 """HEADLESS_FRONTEND_URLS = {
     "account_confirm_email": "/account/verify-email/{key}",

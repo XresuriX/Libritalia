@@ -2,8 +2,8 @@ import pytest
 from django.test import RequestFactory
 from allauth.account.signals import user_signed_up
 
-from libretalia.users.models import Profile
-from libretalia.users.models import User
+from xamaica.users.models import Profile
+from xamaica.users.models import User
 
 
 def test_user_get_absolute_url(user: User):

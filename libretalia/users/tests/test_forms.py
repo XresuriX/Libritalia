@@ -2,8 +2,8 @@
 
 from django.utils.translation import gettext_lazy as _
 
-from libretalia.users.forms import UserAdminCreationForm
-from libretalia.users.models import User
+from xamaica.users.forms import UserAdminCreationForm
+from xamaica.users.models import User
 
 
 class TestUserAdminCreationForm:

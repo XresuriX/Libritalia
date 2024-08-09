@@ -7,7 +7,7 @@ from django.urls import include
 from django.urls import path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
-from libretalia.users.api import app
+from xamaica.users.api import app
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -19,9 +19,9 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("users/", include("libretalia.users.urls", namespace="users")),
+    path("users/", include("xamaica.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path("libretalia_allauth/", include("allauth.headless.urls")),
+    path("xamaica_allauth/", include("allauth.headless.urls")),
     
     # Your stuff: custom urls includes go here
     path('profile_api/', app.urls),

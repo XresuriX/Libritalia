@@ -2,6 +2,6 @@
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
-POSTGRES_DB=libretalia
+POSTGRES_DB=xamaica
 POSTGRES_USER=xAXGFamcGNtKoxkUMinuJKJLUGGvIQuI
 POSTGRES_PASSWORD=S8UuvVUYXRwEuDc5krWPCeMLrjEUmAdweDgrzkwhD2W1zPCH9yyvo5J2tGUSJTHZ

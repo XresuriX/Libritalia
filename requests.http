@@ -1,6 +1,6 @@
 
 
-GET  http://localhost:8000/libretalia_allauth/app/v1/auth/email/verify
+GET  http://localhost:8000/xamaica_allauth/app/v1/auth/email/verify
 Content-Type: application/json
 
 {

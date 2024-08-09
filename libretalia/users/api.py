@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from allauth.account.forms import SignupForm
 from allauth.account.views import SignupView
 from django.http import HttpRequest
-from libretalia.users.models import User, Profile
+from xamaica.users.models import User, Profile
 from .schemas import UserSchema, UserCreationSchema, ProfileSchema
 
 app = NinjaExtraAPI()

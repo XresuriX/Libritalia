@@ -272,7 +272,7 @@ tags
 dump.rdb
 
 ### Project template
-libretalia/media/
+xamaica/media/
 
 .pytest_cache/
 .ipython/

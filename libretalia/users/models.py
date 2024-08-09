@@ -7,7 +7,7 @@ from django_extensions.db.fields import AutoSlugField
 
 class User(AbstractUser):
     """
-    Default custom user model for Libretalia.
+    Default custom user model for xamaica.
     If adding fields that need to be filled at user signup,
     check forms.SignupForm and forms.SocialSignupForms accordingly.
     """

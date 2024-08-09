@@ -1,9 +1,9 @@
-.. Libretalia documentation master file, created by
+.. xamaica documentation master file, created by
    sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Libretalia's documentation!
+Welcome to xamaica's documentation!
 ======================================================================
 
 .. toctree::

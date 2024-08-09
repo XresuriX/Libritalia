@@ -5,9 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class UsersConfig(AppConfig):
-    name = "libretalia.users"
+    name = "xamaica.users"
     verbose_name = _("Users")
 
     def ready(self):
         with contextlib.suppress(ImportError):
-            import libretalia.users.signals  # noqa: F401
+            import xamaica.users.signals  # noqa: F401

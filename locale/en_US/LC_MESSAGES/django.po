@@ -1,4 +1,4 @@
-# Translations for the Libretalia project
+# Translations for the xamaica project
 # Copyright (C) 2024 Leslie Taffe
 # Leslie Taffe <taffe.leslie@gmail.com>, 2024.
 #

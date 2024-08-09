@@ -12,12 +12,12 @@ from django.test import RequestFactory
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from libretalia.users.forms import UserAdminChangeForm
-from libretalia.users.models import User
-from libretalia.users.tests.factories import UserFactory
-from libretalia.users.views import UserRedirectView
-from libretalia.users.views import UserUpdateView
-from libretalia.users.views import user_detail_view
+from xamaica.users.forms import UserAdminChangeForm
+from xamaica.users.models import User
+from xamaica.users.tests.factories import UserFactory
+from xamaica.users.views import UserRedirectView
+from xamaica.users.views import UserUpdateView
+from xamaica.users.views import user_detail_view
 
 pytestmark = pytest.mark.django_db
 

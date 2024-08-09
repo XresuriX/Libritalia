@@ -4,7 +4,7 @@ import django.utils.timezone
 from django.db import migrations
 from django.db import models
 
-import libretalia.users.models
+import xamaica.users.models
 
 
 class Migration(migrations.Migration):

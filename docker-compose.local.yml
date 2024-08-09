@@ -1,15 +1,15 @@
 volumes:
-  libretalia_local_postgres_data: {}
-  libretalia_local_postgres_data_backups: {}
-  libretalia_local_redis_data: {}
+  xamaica_local_postgres_data: {}
+  xamaica_local_postgres_data_backups: {}
+  xamaica_local_redis_data: {}
 
 services:
   django: &django
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: libretalia_local_django
-    container_name: libretalia_local_django
+    image: xamaica_local_django
+    container_name: xamaica_local_django
     depends_on:
       - postgres
       - redis
@@ -27,26 +27,26 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: libretalia_production_postgres
-    container_name: libretalia_local_postgres
+    image: xamaica_production_postgres
+    container_name: xamaica_local_postgres
     volumes:
-      - libretalia_local_postgres_data:/var/lib/postgresql/data
-      - libretalia_local_postgres_data_backups:/backups
+      - xamaica_local_postgres_data:/var/lib/postgresql/data
+      - xamaica_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
 
   redis:
     image: docker.io/redis:6
-    container_name: libretalia_local_redis
+    container_name: xamaica_local_redis
     
     volumes:
-      - libretalia_local_redis_data:/data
+      - xamaica_local_redis_data:/data
     
 
   celeryworker:
     <<: *django
-    image: libretalia_local_celeryworker
-    container_name: libretalia_local_celeryworker
+    image: xamaica_local_celeryworker
+    container_name: xamaica_local_celeryworker
     depends_on:
       - redis
       - postgres
@@ -55,8 +55,8 @@ services:
 
   celerybeat:
     <<: *django
-    image: libretalia_local_celerybeat
-    container_name: libretalia_local_celerybeat
+    image: xamaica_local_celerybeat
+    container_name: xamaica_local_celerybeat
     depends_on:
       - redis
       - postgres
@@ -65,8 +65,8 @@ services:
 
   flower:
     <<: *django
-    image: libretalia_local_flower
-    container_name: libretalia_local_flower
+    image: xamaica_local_flower
+    container_name: xamaica_local_flower
     ports:
       - '5555:5555'
     command: /start-flower
